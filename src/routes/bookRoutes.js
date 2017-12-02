@@ -5,51 +5,51 @@ var bookRouter = express.Router();
 var router = function(nav){
     var books = [
     {
-        title: 'War and Peace',
-        genre: 'Historical Fiction',
-        author: 'Lev Nikolayevich Tolstoy',
+        title: 'Classics for Pleasure',
+        genre: 'Non-Fiction',
+        author: 'Michael Dirda',
         read: false
         },
     {
-        title: 'Les Misérables',
-        genre: 'Historical Fiction',
-        author: 'Victor Hugo',
+        title: 'A Confederacy of Dunces',
+        genre: 'Fiction',
+        author: 'John Kennedy Toole',
+        read: true
+        },
+    {
+        title: 'Car Talk',
+        genre: 'Non-Fiction',
+        author: ['Tom Maglioozi', 'Ray Magliozzi'],
         read: false
         },
     {
-        title: 'The Time Machine',
-        genre: 'Science Fiction',
-        author: 'H. G. Wells',
+        title: 'Where Wizards Stay Up Late',
+        genre: 'Non-Fiction',
+        author: ['Katie Hafner', 'Matthew Lynon'],
         read: false
         },
     {
-        title: 'A Journey into the Center of the Earth',
-        genre: 'Science Fiction',
-        author: 'Jules Verne',
+        title: 'The Return of the Dancing Master',
+        genre: 'Fiction',
+        author: 'Henning Mankell',
         read: false
         },
     {
-        title: 'The Dark World',
-        genre: 'Fantasy',
-        author: 'Henry Kuttner',
-        read: false
-        },
-    {
-        title: 'The Wind in the Willows',
-        genre: 'Fantasy',
-        author: 'Kenneth Grahame',
-        read: false
-        },
-    {
-        title: 'Life On The Mississippi',
-        genre: 'History',
-        author: 'Mark Twain',
-        read: false
-        },
-    {
-        title: 'Childhood',
+        title: 'Steve Jobs',
         genre: 'Biography',
-        author: 'Lev Nikolayevich Tolstoy',
+        author: 'Walter Issaacson',
+        read: false
+        },
+    {
+        title: 'TED Talks: The Official TED Guide to Public Speaking',
+        genre: 'Non-Fiction',
+        author: 'CHris Anderson',
+        read: false
+        },
+    {
+        title: 'Chronology of Tech History',
+        genre: 'Non-Ficton',
+        author: 'Tom Merritt',
         read: false
         }
     ];
