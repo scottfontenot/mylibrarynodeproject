@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+        <div>
+            <a href="/">Home</a>
+          <nav>
+            <ul>
+                <% for(var i=0; i<nav.length;i++){%>
+                    <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
+                <%}%>
+            </ul>
+        </div>
+      </header>
+      <main>
+          <article>
+                
+            <section>
+                  <h2><%=book.title%></h2>
+                  <h2><%=book.author%></h2>
+                  </section>       
+          </article>
+          <footer>
+              Footer information, links, etc.
+          </footer>
+      </main>
+    
+
+
+     </body>
+</html>
