@@ -1,88 +1,55 @@
 var express = require('express');
-
 var bookRouter = express.Router();
+var mongodb = require('mongodb').MongoClient;
+var objectId = require('mongodb').ObjectID;
 
-var router = function(nav){
-    var books = [
-    {
-        title: 'Classics for Pleasure',
-        genre: 'Non-Fiction',
-        author: 'Michael Dirda',
-        read: false
-        },
-    {
-        title: 'A Confederacy of Dunces',
-        genre: 'Fiction',
-        author: 'John Kennedy Toole',
-        read: true
-        },
-    {
-        title: 'Car Talk',
-        genre: 'Non-Fiction',
-        author: ['Tom Maglioozi', 'Ray Magliozzi'],
-        read: false
-        },
-    {
-        title: 'Where Wizards Stay Up Late',
-        genre: 'Non-Fiction',
-        author: ['Katie Hafner', 'Matthew Lynon'],
-        read: false
-        },
-    {
-        title: 'The Return of the Dancing Master',
-        genre: 'Fiction',
-        author: 'Henning Mankell',
-        read: false
-        },
-    {
-        title: 'Steve Jobs',
-        genre: 'Biography',
-        author: 'Walter Issaacson',
-        read: false
-        },
-    {
-        title: 'TED Talks: The Official TED Guide to Public Speaking',
-        genre: 'Non-Fiction',
-        author: 'CHris Anderson',
-        read: false
-        },
-    {
-        title: 'Chronology of Tech History',
-        genre: 'Non-Ficton',
-        author: 'Tom Merritt',
-        read: false
-        }
-    ];
+var router = function (nav) {
+
     bookRouter.route('/')
-    .get(function (req, res) {
-        res.render('bookListView', {
-            title: 'Books',
-            nav: nav,
-            books: books
+        .get(function (req, res) {
+            var url =
+                'mongodb://localhost:27017/libraryApp';
+
+            mongodb.connect(url, function (err, db) {
+                var collection = db.collection('books');
+
+                collection.find({}).toArray(
+                    function (err, results) {
+                        res.render('bookListView', {
+                            title: 'Books',
+                            nav: nav,
+                            books: results
+                        });
+                    }
+                );
+            });
+
         });
-    });
 
     bookRouter.route('/:id')
-    .get(function (req, res) {
-        var id = req.params.id;
-        res.render('bookView', {
-            title: 'Books',
-            nav: nav,
-            book: books[id]
+        .get(function (req, res) {
+            var id = new objectId(req.params.id);
+            var url =
+                'mongodb://localhost:27017/libraryApp';
+
+            mongodb.connect(url, function (err, db) {
+                var collection = db.collection('books');
+
+                collection.findOne({_id: id},
+                    function (err, results) {
+                        res.render('bookView', {
+                            title: 'Books',
+                            nav: nav,
+                            book: results
+                        });
+
+                    }
+                );
+
+            });
+
         });
-    });
-    
+
     return bookRouter;
-}
+};
 module.exports = router;
-
-/*
-module.exports = function(app) {
-    app.get('/', function(req, res) {
-        res.render('pages/index');
-    });
-
-    app.get('/about', function(req, res) {
-        res.render('pages/about');
-    });
-};*/

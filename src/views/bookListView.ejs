@@ -23,10 +23,11 @@
       <main>
           <article>
                 <% for(var i=0; i<books.length;i++){%>
+                    
             <section>
                     <h3><%=books[i].title%></h3>
                     <h3><%=books[i].author%></h3>
-                    <h4><a href="/books/<%=i%>" class="text-muted">Read More</a></h4>
+                    <h4><a href="/books/<%=books[i]._id%>" class="text-muted">Read More</a></h4>
                 <%}%>
             </section>
           </article>
