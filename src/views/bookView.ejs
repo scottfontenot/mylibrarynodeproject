@@ -10,23 +10,24 @@
   </head>
   <body>
     <header>
-        <div>
             <a href="/">Home</a>
-          <nav>
+        <nav>
             <ul>
                 <% for(var i=0; i<nav.length;i++){%>
                     <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
                 <%}%>
             </ul>
-        </div>
-      </header>
+        </nav>
+    </header>
       <main>
           <article>
-                
+              <h1>My Library Collection</h1>          
             <section>
-                  <h3><%=book.title%></h3>
-                  <h3><%=book.author%></h3>
-                  </section>       
+                    <img style="width:100px;height:100px">
+                <h3><%= book.title %></h3>
+                <h3><%= book.author %></h3>
+                
+            </section>       
           </article>
           <footer>
               Footer information, links, etc.

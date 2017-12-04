@@ -34,7 +34,7 @@ var router = function () {
     authRouter.route('/profile')
         .all(function (req, res, next) {
             if (!req.user) {
-                res.redirect('/');//redirects you back if not a user that is signed in
+                res.redirect('/');
             }
             next();
         })

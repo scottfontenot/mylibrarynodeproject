@@ -10,18 +10,20 @@
   </head>
   <body>
     <header>
-        <div>
-            <a href="/">Home</a>
-          <nav>
+        <a href="/">Home</a>
+        <nav>
             <ul>
                 <% for(var i=0; i<nav.length;i++){%>
                     <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
                 <%}%>
             </ul>
-        </div>
-      </header>
-      <main>
-          <article>
+        </nav>
+    </header>
+    <main>
+        <article>
+                <h1>My Library Collection</h1>
+        </article>
+        <article>
                 <% for(var i=0; i<books.length;i++){%>
                     
             <section>
