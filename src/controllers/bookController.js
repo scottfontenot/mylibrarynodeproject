@@ -1,4 +1,5 @@
 //revealing module pattern, scroll to bottom to see what everything returned
+//dont need bookRouter and Express b/c this is building out the functions that are used by the router
 var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
@@ -16,7 +17,6 @@ var bookController = function (bookService, nav) {
 
         mongodb.connect(url, function (err, db) {
             var collection = db.collection('books');
-
             collection.find({}).toArray(
                 function (err, results) {
                     res.render('bookListView', {
@@ -61,11 +61,8 @@ var bookController = function (bookService, nav) {
                         });
                     }
                 }
-
-            );
-
+            );//collection.findOne
         });
-
     };
 
     return {
