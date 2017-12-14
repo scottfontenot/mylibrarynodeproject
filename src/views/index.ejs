@@ -1,46 +1,66 @@
 <!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8'>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <header>
-            <h1><a href="/">Home</a></h1>
-          <nav>
-            <ul>
-                <% for(var i=0; i<nav.length;i++){%>
-                    <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
-                <%}%>
-            </ul>
-      </header>
-      <main>
-        <section>
-            <article>Sign In
+<html>
+	<head>
+		<title>Scott Fontenot | Personal Library</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- Custom Font -->
+		<link href="../stylesheets/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<nav>
+			    <h1><a href="/"><%= title %></a></h1>
+                <ul><% for(var i=0; i<nav.length;i++){%>
+                    <li><a href="<%=nav[i].Link%>"><%= nav[i].Text %></a></li>
+                            <%}%>
+                </ul>
+            </nav>
+		</header>
+        <main>
+            <section class="form">
                 <form name="signInForm" action="/auth/signIn" method="post">
-                User Name: <input name="userName" id="userName"> <br/>
-                Password: <input name="password" id="password"> <br/>
-                <input type="submit" value="Sign In">
+                    <fieldset class="account-info"><legend>Sign In</legend>
+                        <label>
+                            Username
+                        <input input type="text" name="userName" id="userName">
+                        </label>
+                        <label>
+                            Password
+                        <input type="text" name="password" id="password">
+                        </label>
+                    </fieldset>
+                    <fieldset class="account-action">
+                        <input class="btn" type="submit" value="Login">
+                    </fieldset>
                 </form>
-            </article>
-            <article>Sign Up
                 <form name="signUpForm" action="/auth/signUp" method="post">
-                User Name: <input name="userName" id="userName"> <br/>
-                Password: <input name="password" id="password"> <br/>
-                <input type="submit" value="Sign up">
-                </form>
-            </article>
-        </section>
-          <footer>
-              Footer information, links, etc.
-          </footer>
-      </main>
-    
-
-
-     </body>
+                    <fieldset class="account-info"><legend>Sign Up</legend>
+                        <label>
+                            Username
+                        <input input type="text" name="userName" id="userName">
+                        </label>
+                        <label>
+                            Password
+                        <input type="text" name="password" id="password">
+                        </label>
+                    </fieldset>
+                    <fieldset class="account-action">
+                        <input class="btn" type="submit" value="Sign Up">
+                    </fieldset>    
+                </form>        
+            </section>
+        </main>	    
+           
+		<footer>
+			<p>Created by Scott Fontenot</p> 
+			<div class="footer-images">
+                <p>place holder for links</p>
+				<img src="" alt=""> 
+				<img src="" alt=""> 
+				<img src="" alt=""> 
+			</div>
+		</footer>
+	</body>
 </html>

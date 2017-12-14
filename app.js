@@ -40,7 +40,7 @@ app.use('/Auth', authRouter);
 
 app.get('/', function (req, res) {
     res.render('index', {
-        title: 'Hello from render',
+        title: 'Home Library Catalog',
         nav: [{
             Link: '/Books',
             Text: 'Books'

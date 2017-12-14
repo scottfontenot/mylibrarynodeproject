@@ -1,8 +1,7 @@
 var mongodb = require('mongodb').MongoClient;
-//var objectId = require('mongodb').ObjectID;
-var ObjectId = require('mongodb').ObjectID;
+var objectId = require('mongodb').ObjectID;
 
-var bookController = function(bookService, nav) {
+var authorController = function(authorService, nav) {
     var middleware = function(req, res, next) {
         if (!req.user) {
             res.redirect('/');
@@ -18,21 +17,18 @@ var bookController = function(bookService, nav) {
 
             collection.find({}).toArray(
                 function(err, results) {
-                    res.render('bookListView', {
+                    res.render('authorListView', {
                         title: 'Back Home',
                         nav: nav,
-                        books: results
+                        authors: results
                     });
                 }
             );
         });
-
     };
 
     var getById = function(req, res) {
-        //console.log(req.params.id);
-        var id = new ObjectId(req.params.id);
-       // console.log(id);
+        var id = new objectId(req.params.id);
         var url =
             'mongodb://localhost:27017/libraryApp';
 
@@ -43,28 +39,26 @@ var bookController = function(bookService, nav) {
                     _id: id
                 },
                 function(err, results) {
-                    //console.log(results);
                     if (results.bookId) {
-                        bookService//failing here
+                        authorService
                             .getBookById(results.bookId,
                                 function(err, book) {
-                                    //console.log(book);
                                     results.book = book;
-                                    res.render('bookView', {
+                                    res.render('authorView', {
                                         title: 'Back Home',
                                         nav: nav,
                                         book: results
                                     });
                                 });
                     } else {
-                        res.render('bookView', {
+                        res.render('authorView', {
                             title: 'Back Home',
                             nav: nav,
                             book: results
                         });
                     }
                 }
-            );//collection.findOne
+            );
         });
     };
 
@@ -75,4 +69,4 @@ var bookController = function(bookService, nav) {
     };
 };
 
-module.exports = bookController;
+module.exports = authorController;

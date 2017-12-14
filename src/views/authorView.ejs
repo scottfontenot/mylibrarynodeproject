@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>LibraryApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
     <script src="/lib/jquery/dist/jquery.js"></script>
     <link href="../stylesheets/style.css" rel="stylesheet">
     <script src="/js/default.js"></script>
 </head>
+
 <body>
     <header>
-        <nav>
+        <nav role="banner">
             <div>
                 <div>
                     <a href="/">
@@ -29,33 +32,44 @@
                             <%}%>
                     </ul>
                 </div>
-               
+                
             </div>
-          
+            
         </nav>
 
     </header>
 
-    <div></div>
-
     <section>
         <div>
+            <div>
+                <h1>Library App</h1>
+            </div>
         </div>
     </section>
    
     <section>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <h4><%=book.author%></h4>
+                    </div>
+                    <div>
                         <div>
-                            <h4><%=book.title%></h4>
+                            <a><img alt="Book Cover" src="<%=book.book.image_url%>"></a>
                         </div>
-                            <div>
-                                <a class="story-title"><img alt="Book Cover" src="<%=book.book.image_url%>" class="img-responsive"></a>
-                            </div>
-                            <div>
-                                <h4><span><strong><%=book.author%></strong></span></h4>
-                                <p><%-book.book.description%></p>
-                            </div>
-    </section>
+                        <div>
+                            <h4><strong><%=book.title%></strong></h4>
+                            <p>
+                                <%-book.book.description%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    
     <footer>
         <nav>
             <div></div>

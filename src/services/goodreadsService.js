@@ -1,34 +1,38 @@
-var http = require('http');
+var https = require('https');
 var xml2js = require('xml2js');
-var parser = xml2js.Parser({explicitArray: false});
+var parser = xml2js.Parser({
+    explicitArray: false
+});
 
-var goodreadsService = function () {
-    
-    var getBookById = function (id, cb) {
+var goodreadsService = function() {
+    var getBookById = function(id, cb) {
+        //console.log(id);this 
         var options = {
-            host: 'www.goodreads.com',
-            path: '/book/show/249203.xml?key=AIorOaMoo8vcTxMXIFrnuQ'
+            host: 'www.goodreads.com', 
+            path: '/book/show/' + id + '?format=xml&key=AIorOaMoo8vcTxMXIFrnuQ'
+            //
+            //'.xml?key=AIorOaMoo8vcTxMXIFrnuQ' 
         };
+
         var callback = function(response) {
+            console.log(response);
             var str = '';
-            //as data comes back from http req, append data to a string
+
             response.on('data', function(chunk) {
                 str += chunk;
             });
+
             response.on('end', function() {
                 console.log(str);
-                //send string to xml parser, call the callback that bookController sent in with the result
-                parser.parseString(str, 
-                    function(err, result) {
-                        cb(null, 
-                            result.GoodreadsResponse.book);
-                    });
+                parser.parseString(str,
+                  function(err, result) {
+                    cb(null, result.GoodreadsResponse.book);
+                });
             });
         };
-        
-        http.request(options, callback).end();
+
+        https.request(options, callback).end();
     };
-        
     return {
         getBookById: getBookById
     };
