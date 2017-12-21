@@ -19,18 +19,17 @@
         <a href="<%=nav[i].Link%>"><%= nav[i].Text %></a>
         <%}%>
 </nav>
-<section class="container">
-    <div>
+
+<section class="row">
+    <article class="column">
         <a href="/Books/<%=books[i]._id%>"><img alt="book cover" src="<%=books[i].cover%>" style="height:100px" class="card-image"/></a>
         <% for(var i=0; i<books.length;i++){%>
         <h3><%=books[i].title%></h3>
         <h3><%=books[i].author%></h3>
         <p><a href="/Books/<%=books[i]._id%>" class="text-muted">Read More</a>
         <%}%></p>
-    </div> 
+    </article>
 </section>
-
-
 <footer class="footer">
     <h1>The End</h1>
 </footer>

@@ -1,92 +1,154 @@
-/*body {
-	margin: 0px;
-	font-family: 'Source Sans Pro', sans-serif;
-	color: #222222;
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
 }
-nav {
-	position: fixed;
-	z-index:1;
-	top: 0px;
-	width: 100%;
-	height: 3em;
-	background-color: #eeeeee;
-	font-size: 2em;
-	border-bottom: 1px solid #dddddd;
-	padding-top: 0.5em;
-	padding-bottom: 0.40em;
+html {
+  position: relative;
+  min-height: 100%; 
+  background: url(/images/loc-card-catalog.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background: linear-gradient(black, white);*/
+}
+body {
+  padding: 0 50px 0 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-bottom: 60px;
+}
+#about {
+  padding-top: 48px;
+}
+/*  form css */
 
-}*/
-* {
-	box-sizing: border-box;
+form {
+  display: inline-block;
+  border: 1px solid #c6c7cc;
+  border-radius: 5px;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  width: 300px;
+  /*display: block;
+  margin: auto;
+  background-color:white;
+  width:400px;
+  height:420px;
+  text-align: center;*/
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+input {
+  border-radius: 5px;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+.account-info {
+  padding: 20px 20px 0 20px;
+}
+.account-info label {
+  color: #395870;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.account-info input {
+  background: #fff;
+  border: 1px solid #c6c7cc;
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+  color: #636466;
+  padding: 6px;
+  margin-top: 6px;
+  width: 100%;
+}
+.account-action {
+  background: #f0f0f2;
+  border-top: 1px solid #c6c7cc;
+  padding: 20px;
+}
+.account-action .btn {
+  background: linear-gradient(#49708f, #293f50);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  float: left;
+  padding: 8px 16px;
+}
+.account-action label {
+  color: #7c7c80;
+  font-size: 12px;
+  float: left;
+  margin: 10px 0 0 20px;
+}
+/* end form css */
+
+/* ----------bookListView ------------------------*/
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+/* The navbar container */
+.menu {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.menu a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Links - change color on hover */
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+section {
+  border: 2px solid white;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  color: white;
+  border: 2px solid white;
+  display: flex;
+ 
+}
+.card-image {
+  border: 2px solid black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media (max-width: 600px) {
+  .column {
+    width: 100%;
   }
-  /* Grid measurements:
-   *
-   *   960px wide including 12 gutters (half gutters on both edges)
-   *
-   *   60px columns (12)
-   *   20px gutters (two half-gutters + 11 full gutters, so 12 total)
-   *
-   *
-   *   For smaller screens, we always want 20px of padding on either side,
-   *   so 960 + 20 + 20 => 1000px
-   *
-   **/
-  .row {
-	max-width: 1000px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin: 0 auto;
-  }
-  
-  /* Clearfix */
-  .row::before,
-  .row::after {
-	display: table;
-	content: '';
-  }
-  
-  .row::after {
-	clear: both;
-  }
-  
-  .col-3, .col-4, .col-6, .col-12 {
-	float: left;
-  
-	/* Gutters:
-	 * Each column is padded by half-a-gutter on each side,
-	 *
-	 * Half a gutter is 10px, 10/960 (context) = 1.041666%
-	 *
-	 */
-	padding-left: 1.04166666%;
-	padding-right: 1.04166666%;
-  }
-  
-  /* Mobile defaults */
-  .col-3, .col-4, .col-6, .col-12 {
-	width: 100%;
-  }
-  
-  
-  /* Non-mobile, grid */
-  @media only screen and (min-width: 640px) {
-	/* 3 columns, 3/12 in % */
-	.col-3 {
-	  width: 25%;
-	}
-  
-	/* 4 columns */
-	.col-4 {
-	  width: 33%;
-	}
-  
-	/* 6 columns */
-	.col-6 {
-	  width: 50%;
-	}
-  
-	/* 12 columns */
-	.col-12 {
-	  width: 100%;
-	}
-  }
+}
+
+.footer {
+  background-color: #F1F1F1;
+  padding: 20px;
+}

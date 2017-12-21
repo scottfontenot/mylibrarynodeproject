@@ -93,6 +93,7 @@ input {
   background-color: #F1F1F1;
   text-align: center;
   padding: 20px;
+  margin: 10px 0px 10px 0px;
 }
 /* The navbar container */
 .menu {
@@ -115,37 +116,43 @@ input {
   background-color: #ddd;
   color: black;
 }
-section {
-  border: 2px solid white;
-  padding: 50px;
+/* ------flexbox-------*/
+
+.container {
+  /*border: 2px solid white;
+  padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
-}
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
   color: white;
-  border: 2px solid white;
-  display: inline-block;
+  */
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 20px;
+  margin: 10px 0px 10px 0px;
 }
-.card-image {
+.container > div:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+section .card-image {
   border: 2px solid black;
 }
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+section div {
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 10px;
+}
+section a {
+  color: white;
+  text-decoration: none;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
-@media (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+section a:hover {
+  text-decoration: underline;
 }
-
 .footer {
   background-color: #F1F1F1;
   padding: 20px;
