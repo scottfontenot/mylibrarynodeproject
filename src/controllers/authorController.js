@@ -18,7 +18,7 @@ var authorController = function(authorService, nav) {
             collection.find({}).toArray(
                 function(err, results) {
                     res.render('authorListView', {
-                        title: 'Back Home',
+                        title: 'The Home Library Project',
                         nav: nav,
                         authors: results
                     });
@@ -45,14 +45,14 @@ var authorController = function(authorService, nav) {
                                 function(err, book) {
                                     results.book = book;
                                     res.render('authorView', {
-                                        title: 'Back Home',
+                                        title: 'The Home Library Project',
                                         nav: nav,
                                         book: results
                                     });
                                 });
                     } else {
                         res.render('authorView', {
-                            title: 'Back Home',
+                            title: 'The Home Library Project',
                             nav: nav,
                             book: results
                         });

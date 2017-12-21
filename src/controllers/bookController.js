@@ -19,7 +19,7 @@ var bookController = function(bookService, nav) {
             collection.find({}).toArray(
                 function(err, results) {
                     res.render('bookListView', {
-                        title: 'Back Home',
+                        title: 'The Home Library Project',
                         nav: nav,
                         books: results
                     });
@@ -51,14 +51,14 @@ var bookController = function(bookService, nav) {
                                     //console.log(book);
                                     results.book = book;
                                     res.render('bookView', {
-                                        title: 'Back Home',
+                                        title: 'The Home Library Project',
                                         nav: nav,
                                         book: results
                                     });
                                 });
                     } else {
                         res.render('bookView', {
-                            title: 'Back Home',
+                            title: 'The Home Library Project',
                             nav: nav,
                             book: results
                         });

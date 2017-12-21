@@ -1,101 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>LibraryApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <link href="../stylesheets/style.css" rel="stylesheet">
-    <script src="/js/default.js"></script>
+  <meta charset="UTF-8">
+  <title>Home Library Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="../stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
+<header class = "header">
+  <h1><%= title %></h1>
+  <p>A catalog of books in my home library</p>
+</header>
+<nav class="menu">
+        <% for(var i=0; i<nav.length;i++){%>
+        <a href="<%=nav[i].Link%>"><%= nav[i].Text %></a>
+        <%}%>
+</nav>
 
-    <header>
-
-        <nav>
-            <div>
-                <div>
-                    <a href="/" class="navbar-brand">
-                        <%= title %>
-                    </a>
-                </div>
-            
-                <div>
-                    <ul>
-                        <% for(var i=0; i<nav.length;i++){%>
-                            <li>
-                                <a href="<%=nav[i].Link%>">
-                                    <%= nav[i].Text %>
-                                </a>
-                            </li>
-                            <%}%>
-                    </ul>
-                </div>
-                
-            </div>
-            
-        </nav>
-
-    </header>
-
-    <section>
-        <div>
-            <div>
-                <h1>Library App</h1>
-            </div>
-            <div>
-                <p class="text-justify">To populate the View below we have to add books to our Mongo database. Make sure <a href="https://www.mongodb.com/">mongoDB</a> is running in the background (default port 27017) and visit <a href="http://localhost/Admin/addBooks"><strong>localhost/Admin/addBooks</strong></a> to add a book collection to our libraryApp. The book information are stored inside adminRoutes.js. Connect to mongoDB to verify the commit:</p>
-
-                <p class="text-muted">C:\Program Files\MongoDB\Server\3.2\bin > <strong>mongo libraryApp</strong><br/>
-                MongoDB shell version: 3.2.4<br/>
-                connecting to: libraryApp<br/>
-                > <strong>show collections</strong><br/>
-                books<br/>
-                users<br/>
-                > <strong>db.books.find({})</strong></p>
-
-                <p class="text-justify">You can clear the book collection with the following command (e.g. to add your own books):</p>
-
-                <p class="text-muted">> <strong>db.books.remove({})</strong></p>
-            </div>
-        </div>
-    </section>
-   
-    <section>
-        <div>
-            <% for(var i=0; i<books.length;i++){%>
-                <div>
-                    <div>
-                        <div>
-                            <h4><%=books[i].title%></h4>
-                        </div>
-                        <div>
-                            <div>
-                                <a href="/Books/<%=books[i]._id%>"><img alt="" src="<%=books[i].cover%>" style="height:100px" class="img-thumbnail"></a>
-                            </div>
-                            <div>
-                                <p><strong><%=books[i].author%></strong></p>
-                                <p><a href="/Books/<%=books[i]._id%>" class="text-muted">Read More</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <%}%>
-        </div>
-        <hr>
-
-    </section>
-
-    <footer>
-        <nav>
-            <div></div>
-        </nav>
-    </footer>
-
+<section class="row">
+    <article class="column">
+        <a href="/Books/<%=books[i]._id%>"><img alt="book cover" src="<%=books[i].cover%>" style="height:100px" class="card-image"/></a>
+        <% for(var i=0; i<books.length;i++){%>
+        <h3><%=books[i].title%></h3>
+        <h3><%=books[i].author%></h3>
+        <p><a href="/Books/<%=books[i]._id%>" class="text-muted">Read More</a>
+        <%}%></p>
+    </article>
+</section>
+<footer class="footer">
+    <h1>The End</h1>
+</footer>
 </body>
-
-</html>

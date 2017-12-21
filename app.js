@@ -17,6 +17,7 @@ var nav = [{
     Text: 'Author'
 }];
 var bookRouter = require('./src/routes/bookRoutes')(nav);
+var authorRouter = require('./src/routes/authorRoutes')(nav);
 var adminRouter = require('./src/routes/adminRoutes')(nav);
 var authRouter = require('./src/routes/authRoutes')(nav);
 
@@ -34,13 +35,14 @@ app.set('view engine', 'ejs');
 //app.set('views', path.join(__dirname, 'views'));
 
 app.use('/Books', bookRouter);
+app.use('/Author', authorRouter);
 app.use('/Admin', adminRouter);
 app.use('/Auth', authRouter);
 
 
 app.get('/', function (req, res) {
     res.render('index', {
-        title: 'Home Library Catalog',
+        title: 'The Home Library Project',
         nav: [{
             Link: '/Books',
             Text: 'Books'
